@@ -24,7 +24,7 @@ pipeline {
                 dir('DotnetTemplate.Web') {
                     sh "dotnet build"
                     sh "dotnet test"
-                    cobertura path: 'coverage/cobertura-coverage.xml'
+                    publishCoverage adapters: [coberturaAdapter(path: 'coverage/cobertura-coverage.xml')]
                 }
             }
         }
