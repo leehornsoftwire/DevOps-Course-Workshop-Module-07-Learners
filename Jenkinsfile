@@ -24,7 +24,7 @@ pipeline {
                 dir('DotnetTemplate.Web') {
                     sh "dotnet build"
                     sh "dotnet test"
-                    cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml'
+                    cobertura path: 'coverage/cobertura-coverage.xml'
                 }
             }
         }
