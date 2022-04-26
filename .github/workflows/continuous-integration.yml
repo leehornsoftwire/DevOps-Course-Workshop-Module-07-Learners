@@ -14,6 +14,7 @@ jobs:
     - name: build
       run: dotnet build
     - name: test
+      id: test
       run: dotnet test
     - name: Slack Notify
       uses: rtCamp/action-slack-notify@v2.2.0
