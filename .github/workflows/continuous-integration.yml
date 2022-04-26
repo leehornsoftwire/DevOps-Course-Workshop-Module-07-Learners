@@ -32,6 +32,7 @@ jobs:
       uses: rtCamp/action-slack-notify@v2.2.0
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_TITLE: Failed build! @here
+        SLACK_TITLE: Failed build!
         SLACK_LINK_NAMES: true
+        SLACK_MESSAGE: Build failed! @here
 
