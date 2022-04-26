@@ -11,6 +11,7 @@ pipeline {
                 dir('DotnetTemplate.Web') {
                     sh "npm ci --no-audit"
                     sh "npm run test-with-coverage"
+                    publishCoverage adapters: [coberturaAdapter(path: 'coverage/cobertura-coverage.xml')]
                 }
             }
         }
@@ -24,7 +25,6 @@ pipeline {
                 dir('DotnetTemplate.Web') {
                     sh "dotnet build"
                     sh "dotnet test"
-                    publishCoverage adapters: [coberturaAdapter(path: 'coverage/cobertura-coverage.xml')]
                 }
             }
         }
