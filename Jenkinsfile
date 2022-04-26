@@ -9,8 +9,8 @@ pipeline {
             }
             steps {
                 dir('DotnetTemplate.Web') {
-                    sh "npm ci"
-                    sh "npm t"
+                    sh "npm ci --no-audit"
+                    sh "npm run test-with-coverage"
                 }
             }
         }
