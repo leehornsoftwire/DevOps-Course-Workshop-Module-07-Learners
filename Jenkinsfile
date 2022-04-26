@@ -1,14 +1,30 @@
 pipeline {
-    agent any 
+    agent none 
     stages {
-        stage("Build") {
+        stage("npm") {
+            agent {
+                docker {
+                    image 'node:17-bullseye'
+                }
+            }
             steps {
-                echo "Building..."
+                dir('DotnetTemplate.Web') {
+                    sh "npm ci"
+                    sh "npm t"
+                }
             }
         }
-        stage("Test") {
+        stage("dotnet") {
+            agent {
+                docker {
+                    image 'mcr.microsoft.com/dotnet/sdk:6.0'
+                }
+            }
             steps {
-                echo "Testing..."
+                dir('DotnetTemplate.Web') {
+                    sh "dotnet build"
+                    sh "dotnet test"
+                }
             }
         }
     }
