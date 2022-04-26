@@ -22,7 +22,7 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_TITLE: Build succeeded
     - name: commit-status-updater
-      if: {{ always() }}
+      if: always() 
       uses: ouzi-dev/commit-status-updater@v1.0.7
       with:
         status: ${{ job.status }}
