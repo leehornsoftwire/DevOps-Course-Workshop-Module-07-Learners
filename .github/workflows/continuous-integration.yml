@@ -22,12 +22,10 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_TITLE: Build succeeded
     - name: commit-status-updater
+      if: {{ always() }}
       uses: ouzi-dev/commit-status-updater@v1.0.7
-      status: success
-    - name: commit-status-updater
-      if: ${{ failure() }}
-      uses: ouzi-dev/commit-status-updater@v1.0.7
-      status: error
+      with:
+        status: ${{ job.status }}
     - name: Slack Notify failure
       if: ${{ failure() }}
       uses: rtCamp/action-slack-notify@v2.2.0
