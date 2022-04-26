@@ -1,5 +1,7 @@
 # Workshop Module 07
 
+![example workflow](https://github.com/leehornsoftwire/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration.yml/badge.svg)
+
 This repository is for learners on Corndel's DevOps apprenticeship.
 
 Before the workshop you should complete all the set-up instructions in [before_you_start.md](./before_you_start.md).
